@@ -8,11 +8,16 @@
 <body>
     <br/>
 		<a href="champions/championsList.jsp">Listado Campeones</a>
+		<br/>
 		<a href="abilities/abilitiesList.jsp">Listado Habilidades</a>
+		<br/>
 		<a href="stats/statsList.jsp">Listado Stadisticas</a>
+		<br/>
 		<a href="tips/tipsList.jsp">Listado Tips</a>
-		<a href="items/itemsList.jsp">Listado Items</a>
-		<a href="runes/runesList.jsp">Listado Runes</a>
+		<br/>
+		<a href="items/itemsList.jsp">Ejercicio 2</a>
+		<br/>
+		<a href="ejercicio3/ejercicio3.jsp">Ejercicio 3</a>
 	<br/>
 </body>
 </html>
