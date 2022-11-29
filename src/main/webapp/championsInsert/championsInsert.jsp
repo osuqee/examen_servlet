@@ -8,19 +8,23 @@
         <title>formulario nuevos campeones</title>
     </head>
     <body class="container">
-
-        <table>
-            <div>Nombre champ</div><input type="text" id="champion_name" name="champion_name"/>
-            <br/>
-            <div>title</div><input type="text" id="title" name="title"/>
-            <br/>
-            <div>lore</div><input type="text" id="lore" name="lore"/>
-            <br/>
-            <div>tags</div><input type="text" id="tags" name="tags"/>
-            <br/>
-            <input type="submit" value="Insertar campeon"/>
-        </table>
-        
+        <form action="/championsInsertList" method="post">
+            <div class="form-group">insertar nuevo champ
+                <br/>
+                <br/>
+                id: <input type="text" class="form-control" id="id" name="id">
+                <br/>
+                nombre: <input type="text" class="form-control" id="champion_name" name="name">
+                <br/>
+                titulo: <input type="text" class="form-control" id="title" name="title">
+                <br/>
+                lore: <input type="text" class="form-control" id="lore" name="lore">
+                <br/>
+                tags: <input type="text" class="form-control" id="tags" name="tags">
+            </div>
+            <input type="submit" value="insertar campeon"/>
+        </form>
+        <br/>
         <a href="/index.jsp">inicio</a>
         
     </body>

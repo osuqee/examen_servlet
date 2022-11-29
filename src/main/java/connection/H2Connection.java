@@ -19,6 +19,6 @@ public class H2Connection extends AbstractConnection{
 
     @Override
     public String getUrl() {
-        return "jdbc:h2:file:./src/main/resources/testdb;INIT=RUNSCRIPT FROM 'classpath:/scripts/lolh2initdata.sql'";
+        return "jdbc:h2:file:./src/main/resources/testdb;INIT=RUNSCRIPT FROM 'classpath:/scripts/lolh2.sql'";
     }
 }

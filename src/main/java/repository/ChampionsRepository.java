@@ -82,4 +82,45 @@ public class ChampionsRepository {
             manager.close(conn);
         }
     }
+    public void insert(Champions c) {
+		Connection conn = manager.open();
+		PreparedStatement preparedStatement = null;
+		int id = getLastIdChamp();
+		id++;
+		try {
+			preparedStatement = conn.prepareStatement("INSERT INTO champions (id, champion_name, title, lore, tags) VALUES (?, ?, ?, ?, ?)");
+			preparedStatement.setInt(1, id);
+			preparedStatement.setString(2, c.getChampion_name());
+			preparedStatement.setString(3, c.getTitle());
+			preparedStatement.setString(4, c.getLore());
+			preparedStatement.setString(5, c.getTags());
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			manager.close(preparedStatement);
+			manager.close(conn);
+		}
+	}    
+    public int getLastIdChamp() {
+		int last_champ = 0;
+		Connection conn = manager.open();
+		PreparedStatement preparedStatement = null;
+		try {
+			preparedStatement = conn.prepareStatement("SELECT max(id) as id FROM champions ");
+
+			ResultSet resultSet = preparedStatement.executeQuery();
+			while (resultSet.next()) {
+				last_champ = resultSet.getInt("id");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			manager.close(preparedStatement);
+			manager.close(conn);
+		}
+		return last_champ;
+	}
 }
