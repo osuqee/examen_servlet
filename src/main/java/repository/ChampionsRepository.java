@@ -82,26 +82,4 @@ public class ChampionsRepository {
             manager.close(conn);
         }
     }
-    public int getLastIdChampion() {
-		int last_id = 0;
-		Connection conn = manager.open();
-		PreparedStatement preparedStatement = null;
-		try {
-			preparedStatement = conn
-					.prepareStatement("SELECT max(id) as id FROM champions ");
-
-			ResultSet resultSet = preparedStatement.executeQuery();
-			while (resultSet.next()) {
-				last_id = resultSet.getInt("id");
-			
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-			throw new RuntimeException(e);
-		} finally {
-			manager.close(preparedStatement);
-			manager.close(conn);
-		}
-		return last_id;
-	}
 }

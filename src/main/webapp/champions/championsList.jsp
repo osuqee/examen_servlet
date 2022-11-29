@@ -6,15 +6,14 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Listado champions</title>
+        <title>Listado campeones</title>
     </head>
     <body>
-        <h1>Listado champions</h1>
+        <h1>Listado campeones</h1>
         <form action="/championsList" method="post">
-            <br/>
             <a href="../index.jsp">Menu principal</a>
-            <br/>
-            <input type="submit"/>
+            <br/><br/>
+            <input type="submit" value="mostrar listado de campeones"/>
         </form>
 
         <table>

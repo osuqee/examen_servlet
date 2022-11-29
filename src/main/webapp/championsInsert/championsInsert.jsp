@@ -18,7 +18,7 @@
             <br/>
             <div>tags</div><input type="text" id="tags" name="tags"/>
             <br/>
-            <input type="submit" value="enviar"/>
+            <input type="submit" value="Insertar campeon"/>
         </table>
         
         <a href="/index.jsp">inicio</a>
