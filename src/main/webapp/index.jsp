@@ -7,7 +7,9 @@
 </head>
 <body>
     <br/>
-		<a href="champions/championsList.jsp">Listado Campeones</a>
+		<a href="champions/championsList.jsp">Ejercicio 3 - Delete</a>
+		<br/>
+		<a href="championsInsert/championsInsert.jsp">Ejercicio 3 - Insert</a>
 		<br/>
 		<a href="abilities/abilitiesList.jsp">Listado Habilidades</a>
 		<br/>
@@ -17,7 +19,7 @@
 		<br/>
 		<a href="items/itemsList.jsp">Ejercicio 2</a>
 		<br/>
-		<a href="ejercicio3/ejercicio3.jsp">Ejercicio 3</a>
+		<!-- <a href="ejercicio3/ejercicio3.jsp">Ejercicio 3</a> -->
 	<br/>
 </body>
 </html>

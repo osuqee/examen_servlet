@@ -8,6 +8,8 @@ import java.sql.*;
 public class ChampionsRepository {
 
     private final AbstractConnection manager = new H2Connection();
+    private static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/test;INIT=RUNSCRIPT from './src/main/resources/scripts/lolh2initdata.sql'";
+	
 
     public List<Champions> findAll() {
         Connection conn = manager.open();
@@ -41,6 +43,26 @@ public class ChampionsRepository {
         return  championsList;
     }
 
+    public void delete(int id) {
+		Connection conn = manager.open();
+		PreparedStatement preparedStatement = null;
+		
+		try {
+
+			preparedStatement = conn
+					.prepareStatement("DELETE FROM items WHERE id = ?");
+			preparedStatement.setInt(1, id);
+			preparedStatement.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			manager.close(preparedStatement);
+			manager.close(conn);
+		}
+	}
+
     public void insertOne(Champions c) {
         Connection conn = manager.open();
         PreparedStatement statement = null;
@@ -60,4 +82,26 @@ public class ChampionsRepository {
             manager.close(conn);
         }
     }
+    public int getLastIdChampion() {
+		int last_id = 0;
+		Connection conn = manager.open();
+		PreparedStatement preparedStatement = null;
+		try {
+			preparedStatement = conn
+					.prepareStatement("SELECT max(id) as id FROM champions ");
+
+			ResultSet resultSet = preparedStatement.executeQuery();
+			while (resultSet.next()) {
+				last_id = resultSet.getInt("id");
+			
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			manager.close(preparedStatement);
+			manager.close(conn);
+		}
+		return last_id;
+	}
 }
